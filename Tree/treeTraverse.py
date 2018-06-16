@@ -41,6 +41,7 @@ def depth(tree):
 
 #层次遍历（） 后期(先摸清思想)
 
+
 if __name__=="__main__":
     tree = node("D", node("B", node("A"), node("C")), right=node("F", node("E"), node("G")))
 
