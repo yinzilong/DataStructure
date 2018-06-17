@@ -31,15 +31,26 @@ def post_order(tree):
     post_order(tree.right)
     print(tree.data)
 
+#层次遍历（） 后期(借助一个队列就可以)
+def level_order(root):
+    if root is None:
+        return None
+    queue = []
+    queue.append(root)
+    while len(queue)>0:
+        queue_head = queue.pop(0)
+        print(queue_head.data)
+        if queue_head.left is not None:
+            queue.append(queue_head.left)
+        if queue_head.right is not None:
+            queue.append(queue_head.right)
+
+
 #求树的深度
 def depth(tree):
     if tree is None:
         return 0        #深度是一个整数，需要比较大小，所以要返回0，而不能是None
     return max(depth(tree.left), depth(tree.right))+1
-
-
-
-#层次遍历（） 后期(先摸清思想)
 
 
 if __name__=="__main__":
@@ -53,6 +64,9 @@ if __name__=="__main__":
 
     print("\n后序遍历\n")
     post_order(tree)
+
+    print("\n层次遍历\n")
+    level_order(tree)
 
     print("\n树的深度\n")
     print(depth(tree))
